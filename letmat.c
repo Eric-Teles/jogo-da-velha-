@@ -3,6 +3,7 @@
 
 int tam = 3;
 
+
 int val_diag_esq(tabuleiro mesa){
    int count_o = 0,count_x=0;
    
@@ -75,3 +76,18 @@ int val_fim(tabuleiro mesa){
    else if (val_vlh(mesa)) return 2;
    else return 0;
 }
+
+
+//------------------------------------------------------------------------------------------------------
+
+// Entradas
+
+char def_turno(char turno_ant){
+   if (turno_ant == 'x') return 'o';
+   else return 'x';
+   }
+
+void jogada (int marcacao, tabuleiro mesa, char turno){
+   mesa.grade[coordenada[(marcacao-1)].x][coordenada[(marcacao-1)].y] = turno; 
+}
+

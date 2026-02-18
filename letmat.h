@@ -1,11 +1,25 @@
 
 #ifndef letmat.h 
    #define letmat.h
+
 typedef struct  coodenada
 {
-   int ponto[2];
-}coordenadas;
+   int x;
+   int y;
+}ponto;
 
+
+ponto coordenada[9] = {
+    {.x = 0, .y = 0},
+    {.x = 0, .y = 1},
+    {.x = 0, .y = 2},
+    {.x = 1, .y = 0},
+    {.x = 1, .y = 1},
+    {.x = 1, .y = 2},
+    {.x = 2, .y = 0},
+    {.x = 2, .y = 1},
+    {.x = 2, .y = 2}
+};
    typedef struct tabuleiro
 {
    char grade[3][3];
@@ -33,7 +47,8 @@ int val_fim(tabuleiro mesa);
 // entrada
 // -----------------------------------*
 
-   
+char def_turno(char turno_ant);
+void jogada (int marcacao, tabuleiro mesa, char turno); 
 
 // -----------------------------------*
 #endif
