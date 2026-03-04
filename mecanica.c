@@ -27,21 +27,14 @@ void partida ( tabuleiro *mesa, char quadro[5][5]){
          printf("\n\t\t\tselecione uma célula:\n\t\t\t\t\t");
          scanf(" %c", &lance);
 
-      printf("\nLance registrado: %c // %d:: como vai para o if ( %d )", lance, lance, (((int)(lance))-49));
-
          while (lance<'1' && lance >'9')  scanf(" %c", &lance);
          repasse = ((int)(lance))-49; // já na forma do índice que irei usar
          if (mesa->grade[coordenada[repasse].x][coordenada[repasse].y] != 'x' && mesa->grade[coordenada[repasse].x][coordenada[repasse].y] != 'o'){
             
-            printf("\n #+#mesa-> grade [x,y]: %c\n",mesa->grade[coordenada[(((int)(lance))-49)].x][coordenada[(((int)(lance))-49)].y]);
                turno = def_turno(turno);
                jogada(repasse,mesa,turno);
-
-            printf("\n #=# pos jogada :: mesa-> grade [x,y]:%c\nCoodenada {%d, %d}",mesa->grade[coordenada[(((int)(lance))-49)].x][coordenada[(((int)(lance))-49)].y], coordenada[(((int)(lance))-49)].x,coordenada[(((int)(lance))-49)].y );
-               system("pause");
                check = val_fim(mesa);
                system("cls");
-              
                printf("\n");
 
          } else{
@@ -60,18 +53,18 @@ void partida ( tabuleiro *mesa, char quadro[5][5]){
 
       if (check  == 1){
          system("cls");
-         printf("\n\n               VITÓRIA\nVencedor: %d", turno);
+         printf("\n\n               VITÓRIA\nVencedor: %c", turno);
          system("pause");
       }else if (check == 2){
          system ("cls");
-         printf("\n\n               DEU VÉIA \n             :(");
+         printf("\n\n               DEU VÉIA \n             :(\n");
          system("pause");
 
       }else {
          system("cls");
          printf ("\nERRO :: problema no retorno de validação de turno ou na função de partida.\n");
       }
-   
+   mesa_limpa(mesa->grade);
 }
 
 
@@ -85,17 +78,17 @@ void partida ( tabuleiro *mesa, char quadro[5][5]){
 }
 
    void apresenta(){
-
-      char msg1 [34] = {"Bem vindo ao jogo da VÉA . . .\n"};
-      char msg2 [113] ={"Aqui temos duas modalidades de jogo: 1v1 e 1v máquina.\nambas operam em turnos onde o x começa, por padrão.\n"};
-      char msg3 [111] = {"\nO tabulerio apresentará os números das céluas a serem marcadas. Escolha aquela que desejar, em seu turno."};
+      char enter;
+      char msg1 [] = {"Bem vindo ao jogo da VÉA . . .\n"};
+      char msg2 [] ={"Aqui temos duas modalidades de jogo: 1v1 e 1v máquina.\nAmbas, por padrão, operam em turnos onde o x começa.\n"};
+      char msg3 [] = {"O tabulerio apresentará os números das céluas a serem marcadas. Escolha aquela que desejar, em seu turno apertando o respectivo número."};
       
          system("cls");
-         teleprompt(msg1,34);
-         teleprompt(msg2,113);
-         teleprompt(msg3,111);
-         Sleep(1000);
-         system("cls");
+         teleprompt(msg1,33);
+         teleprompt(msg2,112);
+         teleprompt(msg3,140);
+         printf("\nPrecione ENTER para voltar: ");
+         scanf(" %c", &enter);
    }
 
 void sair (){

@@ -17,6 +17,7 @@ void _modo1(tabuleiro *mesa, char quadro [5][5]){
                   printf("Escolha invalida, aperte y ou n para dar seguimento ao programa.\n");
                   scanf(" %c", &continuacao);
                   mesa_limpa(mesa->grade);
+                  system("cls");
                   
             }
          

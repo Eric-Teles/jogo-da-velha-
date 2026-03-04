@@ -99,11 +99,7 @@ char def_turno(char turno_ant){
    }
 
 void jogada (int marcacao, tabuleiro *mesa, char turno){
-        printf(" em jogada: %d || %c", marcacao, marcacao);
-        printf("\n%c\n",mesa->grade[coordenada[(marcacao-1)].x][coordenada[(marcacao-1)].y]);
-        mesa->grade[coordenada[(marcacao)].x][coordenada[(marcacao)].y] = turno; 
-        printf("%c\n",mesa->grade[coordenada[(marcacao)].x][coordenada[(marcacao)].y]);
-        
+        mesa->grade[coordenada[(marcacao)].x][coordenada[(marcacao)].y] = turno;       
 }
 
 // Parte gráfica 
