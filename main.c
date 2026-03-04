@@ -1,15 +1,22 @@
-#include "mecanica.h"
+#include"modo1.h"
 #include <stdio.h>
+#include <windows.h>
 
-int main( )
-{
 
-    int opicao;
+int main( ){
+   system ("chcp 65001");
+   char quadro[5][5];
+   tabuleiro mesa;
+   mesa_limpa((mesa.grade));
+
+   int opicao;
 
    do {
+         system("cls");
          printf("\n\t\tMENU");
-         printf("[0] -> Sair\n[1] -> 1v1\n[2] ->  vs máquina");
-         opicao = scanf("%1d", &opicao);
+         printf("\n[0] -> Sair\n[1] -> 1v1\n[2] -> vs máquina\n[3] -> Apresentação\n");
+         // aprender a tratar exceções
+         scanf(" %d", &opicao);
 // seria interessante tentar entender um modo de tratar erros em c... Buscar dps.
 
       switch(opicao)
@@ -19,18 +26,28 @@ int main( )
             sair ();
             break;
          case 1: 
-            printf("Jogo 1v1\nEm desenvolvimento");
-            break;
+               system("cls");
+               printf("\nJogo 1v1\nEm desenvolvimento\n\n");
+               _modo1(&mesa, quadro);
+               break;
          case 2: 
-            printf("Jogo contra máquina\n em desenvolvimento");
-            break;
+               system("cls");
+               printf("Jogo contra máquina\n em desenvolvimento");
+               system("cls");
+               break;
+         case 3:
+               apresenta();
+               break;
          
          default:
-            printf("Opicao inválida, leia novamente i letreiro...");
-            break;
+               system("cls");
+               printf("Opicao inválida! Observe o menu...");
+               Sleep (1000);
+               system("cls");
+               break;
          }
 
-   }while (opicao);
+   }while (opicao != 0);
    
 
    return 0;

@@ -1,18 +1,18 @@
-#include "letmat.h"
-#include <windows.h>
-#ifndef mecanica.h
-   #define mecanica.h
+#ifndef MECANICA_H
+   #define MECANICA_H
+   #include "letmat.h"
+   #include <windows.h>
+   #include <stdio.h>
+
+   void mesa_limpa(char grade[3][3]);
+  
 
 
+   void partida ( tabuleiro *mesa, char quadro[5][5]);
 
-
-
-void mesa_limpa(tabuleiro mesa);
-void ler_mesa (tabuleiro mesa);
-
-
-void partida (char turno, int marcacao, tabuleiro mesa);
-
+   void teleprompt(char* string, int a);
+   void apresenta();
+   void sair ();
 
 #endif
 
